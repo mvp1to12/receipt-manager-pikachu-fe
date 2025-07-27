@@ -1,0 +1,124 @@
+[debug] [2025-07-27T05:07:11.017Z] ----------------------------------------------------------------------
+[debug] [2025-07-27T05:07:11.018Z] Command:       /Users/mmangal/.nvm/versions/node/v22.17.0/bin/node /Users/mmangal/.nvm/versions/node/v22.17.0/bin/firebase init hosting
+[debug] [2025-07-27T05:07:11.018Z] CLI Version:   14.11.1
+[debug] [2025-07-27T05:07:11.018Z] Platform:      darwin
+[debug] [2025-07-27T05:07:11.018Z] Node Version:  v22.17.0
+[debug] [2025-07-27T05:07:11.018Z] Time:          Sun Jul 27 2025 10:37:11 GMT+0530 (India Standard Time)
+[debug] [2025-07-27T05:07:11.018Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-27T05:07:11.021Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-27T05:07:11.021Z] > authorizing via signed-in user (mvp1to12@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/mmangal/Documents/Personal/Coding/receipt-manager
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2025-07-27T05:07:25.341Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:25.341Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:25.343Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-27T05:07:25.343Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"receipt-manager"}
+[debug] [2025-07-27T05:07:25.980Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-27T05:07:25.980Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"receipt-manager-74fa7"}
+[debug] [2025-07-27T05:07:32.305Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:32.305Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:32.306Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-27T05:07:32.306Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"receipt-manager-pikachu"}
+[debug] [2025-07-27T05:07:33.084Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-27T05:07:33.084Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_AVAILABLE","suggestedProjectId":"receipt-manager-pikachu"}
+[debug] [2025-07-27T05:07:38.142Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:38.142Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:38.142Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-07-27T05:07:38.142Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"receipt-manager-pikachu","name":"receipt-manager-pikachu"}
+[debug] [2025-07-27T05:07:39.860Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2025-07-27T05:07:39.860Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.8654812898902264481"}
+[debug] [2025-07-27T05:07:39.861Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:39.861Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:39.861Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.8654812898902264481 [none]
+[debug] [2025-07-27T05:07:41.283Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.8654812898902264481 200
+[debug] [2025-07-27T05:07:41.283Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.8654812898902264481 {"name":"operations/create_project.global.8654812898902264481","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"678731443175","projectId":"receipt-manager-pikachu","lifecycleState":"ACTIVE","name":"receipt-manager-pikachu","createTime":"2025-07-27T05:07:40.666884Z"}}
+[debug] [2025-07-27T05:07:41.284Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:41.284Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:41.284Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/receipt-manager-pikachu:addFirebase [none]
+[debug] [2025-07-27T05:07:44.916Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/receipt-manager-pikachu:addFirebase 200
+[debug] [2025-07-27T05:07:44.916Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/receipt-manager-pikachu:addFirebase {"name":"operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy"}
+[debug] [2025-07-27T05:07:44.917Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:44.917Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:44.917Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy [none]
+[debug] [2025-07-27T05:07:50.399Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy 200
+[debug] [2025-07-27T05:07:50.400Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy {"name":"operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy"}
+[debug] [2025-07-27T05:07:50.901Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-07-27T05:07:50.902Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:50.902Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:50.902Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy [none]
+[debug] [2025-07-27T05:07:51.830Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy 200
+[debug] [2025-07-27T05:07:51.830Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy {"name":"operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy"}
+[debug] [2025-07-27T05:07:52.832Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-07-27T05:07:52.832Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:52.832Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:52.832Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy [none]
+[debug] [2025-07-27T05:07:53.932Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy 200
+[debug] [2025-07-27T05:07:53.932Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy {"name":"operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy"}
+[debug] [2025-07-27T05:07:55.934Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2025-07-27T05:07:55.934Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:55.934Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:55.934Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy [none]
+[debug] [2025-07-27T05:07:56.575Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy 200
+[debug] [2025-07-27T05:07:56.575Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy {"name":"operations/workflows/YjhmNzFhMzYtMTViMS00NzhhLWE4OGQtZTliNWNmZjk4OGIy","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"receipt-manager-pikachu","projectNumber":"678731443175","displayName":"receipt-manager-pikachu","name":"projects/receipt-manager-pikachu","resources":{"hostingSite":"receipt-manager-pikachu"}}}
+[info] 
+[info] 🎉🎉🎉 Your Firebase project is ready! 🎉🎉🎉
+[info] 
+[info] Project information:
+[info]    - Project ID: receipt-manager-pikachu
+[info]    - Project Name: receipt-manager-pikachu
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/receipt-manager-pikachu/overview
+[info] i  Using project receipt-manager-pikachu (receipt-manager-pikachu) 
+[info] 
+=== Hosting Setup
+[debug] [2025-07-27T05:07:56.585Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:56.586Z] Checked if tokens are valid: true, expires at: 1753596230849
+[debug] [2025-07-27T05:07:56.586Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/receipt-manager-pikachu [none]
+[debug] [2025-07-27T05:07:57.561Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/receipt-manager-pikachu 200
+[debug] [2025-07-27T05:07:57.561Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/receipt-manager-pikachu {"projectId":"receipt-manager-pikachu","projectNumber":"678731443175","displayName":"receipt-manager-pikachu","name":"projects/receipt-manager-pikachu","resources":{"hostingSite":"receipt-manager-pikachu"},"state":"ACTIVE","etag":"1_212b2381-da35-4a7f-9a02-2bf92ceb61ec"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2025-07-27T05:08:25.637Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2025-07-27T05:08:25.768Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2025-07-27T05:08:25.768Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"12.0.0","browserURL":"https://www.gstatic.com/firebasejs/12.0.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/12.0.0/firebase.tgz"},"live":{"version":"12.0","browserURL":"https://www.gstatic.com/firebasejs/live/12.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/12.0/firebase.tgz"},"components":{"ai":"https://www.gstatic.com/firebasejs/12.0.0/firebase-ai.js","analytics":"https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/12.0.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth/cordova.js","auth/web-extension":"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth/web-extension.js","functions":"https://www.gstatic.com/firebasejs/12.0.0/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/12.0.0/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/12.0.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/12.0.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/12.0.0/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js","data-connect":"https://www.gstatic.com/firebasejs/12.0.0/firebase-data-connect.js","firestore.memory":"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.memory.js"}}
+[info] i  Skipping write of public/index.html 
+[info] 
+[info] i  Didn't detect a .git folder. Assuming /Users/mmangal/Documents/Personal/Coding/receipt-manager is the project root. 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=26616553&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-07-27T05:12:15.744Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2025-07-27T05:12:15.744Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2025-07-27T05:12:16.135Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2025-07-27T05:12:16.135Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2025-07-27T05:12:16.138Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2025-07-27T05:12:16.571Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2025-07-27T05:12:16.571Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"mvp1to12","id":219362029,"node_id":"U_kgDODRMy7Q","avatar_url":"https://avatars.githubusercontent.com/u/219362029?v=4","gravatar_id":"","url":"https://api.github.com/users/mvp1to12","html_url":"https://github.com/mvp1to12","followers_url":"https://api.github.com/users/mvp1to12/followers","following_url":"https://api.github.com/users/mvp1to12/following{/other_user}","gists_url":"https://api.github.com/users/mvp1to12/gists{/gist_id}","starred_url":"https://api.github.com/users/mvp1to12/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mvp1to12/subscriptions","organizations_url":"https://api.github.com/users/mvp1to12/orgs","repos_url":"https://api.github.com/users/mvp1to12/repos","events_url":"https://api.github.com/users/mvp1to12/events{/privacy}","received_events_url":"https://api.github.com/users/mvp1to12/received_events","type":"User","user_view_type":"private","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":1,"public_gists":0,"followers":0,"following":0,"created_at":"2025-07-05T00:34:51Z","updated_at":"2025-07-12T06:46:00Z","private_gists":0,"total_private_repos":2,"owned_private_repos":2,"disk_usage":1760,"collaborators":2,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as mvp1to12 
+[info] 
