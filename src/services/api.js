@@ -1,5 +1,5 @@
 // API Configuration
-const EXTERNAL_BASE_URL = 'https://493e79668b1a.ngrok-free.app';
+const EXTERNAL_BASE_URL = 'https://676fbcbf8ffa.ngrok-free.app';
 
 // const EXTERNAL_BASE_URL = 'http://34.59.255.175';
 
