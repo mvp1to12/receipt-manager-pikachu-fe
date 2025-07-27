@@ -72,15 +72,15 @@ export const mockDashboardData = {
         ],
         "recentSpending": [
             {
-                "name": "South Indian Combo",
+                "name": "Red Bull Energy Drink",
                 "purchaseDate": "July 27, 2025",
-                "amount": 300,
-                "category": "Dining"
+                "amount": 125,
+                "category": "Beverages"
             },
             {
-                "name": "Filter Coffee",
+                "name": "So Good Almond",
                 "purchaseDate": "July 27, 2025",
-                "amount": 65,
+                "amount": 75,
                 "category": "Beverages"
             },
             {

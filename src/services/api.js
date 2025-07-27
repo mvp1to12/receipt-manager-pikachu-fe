@@ -1,5 +1,5 @@
 // API Configuration
-const EXTERNAL_BASE_URL = 'https://676fbcbf8ffa.ngrok-free.app';
+const EXTERNAL_BASE_URL = 'https://18af0f021322.ngrok-free.app'; // ngrok on vm instance
 
 // const EXTERNAL_BASE_URL = 'http://34.59.255.175';
 
