@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Mic, Send, ExternalLink } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { chatAPI, createSession } from '../services/api';
+import TranslatedText from './TranslatedText';
 
 // Utility function to detect and convert plain URLs to clickable links
 const detectAndFormatLinks = (text) => {
@@ -24,6 +25,7 @@ const Chat = () => {
   const [sessionId, setSessionId] = useState(null);
   const [isInitializing, setIsInitializing] = useState(true);
   const [error, setError] = useState(null);
+  const [placeholderText, setPlaceholderText] = useState('Write your message');
   const botMessageIndexRef = useRef(null);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const Chat = () => {
       await fetchTemplateQueries();
     } catch (error) {
       console.error('Failed to initialize chat:', error);
-      setError('Failed to initialize chat. Please try refreshing the page.');
+      setError(<TranslatedText>Failed to initialize chat. Please try refreshing the page.</TranslatedText>);
     } finally {
       setIsInitializing(false);
     }
@@ -186,7 +188,7 @@ const Chat = () => {
         </div>
         <div className="error-container">
           <div className="error-message">{error}</div>
-          <button onClick={() => window.location.reload()}>Retry</button>
+          <button onClick={() => window.location.reload()}><TranslatedText>Retry</TranslatedText></button>
         </div>
       </div>
     );
@@ -195,7 +197,7 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="chat-header">
-        <h1>Your personal financial assistant</h1>
+        <h1><TranslatedText>Your personal financial assistant</TranslatedText></h1>
       </div>
 
       {chatHistory.length === 0 && (
@@ -206,7 +208,7 @@ const Chat = () => {
               className="template-query"
               onClick={() => handleTemplateQuery(query)}
             >
-              {query}
+              <TranslatedText>{query}</TranslatedText>
             </button>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { insightsAPI } from "../services/api";
+import TranslatedText from "./TranslatedText";
 
 const Insights = ({ sessionId, insightsData }) => {
   const [expectedExpense, setExpectedExpense] = useState(0);
@@ -169,7 +170,7 @@ const Insights = ({ sessionId, insightsData }) => {
   return (
     <div className="insights">
       <div className="expected-expense">
-        <h2>Expected expense for next month</h2>
+        <h2><TranslatedText>Expected expense for next month</TranslatedText></h2>
         <div className="expense-amount">
           {insightsLoading
             ? "Loading..."
@@ -178,16 +179,16 @@ const Insights = ({ sessionId, insightsData }) => {
       </div>
 
       <div className="section">
-        <h3>Shopping Alerts</h3>
+        <h3><TranslatedText>Shopping Alerts</TranslatedText></h3>
         {insightsLoading ? (
-          <div className="loading-placeholder">Loading shopping alerts...</div>
+          <div className="loading-placeholder"><TranslatedText>Loading shopping alerts...</TranslatedText></div>
         ) : (
           shoppingAlerts.map((alert) => (
             <div key={alert.id} className="alert-card">
               <div className="alert-info">
-                <h4>{alert.item}</h4>
-                <p>Expires in: {alert.expiresIn}</p>
-                <p>Last Purchased: {alert.lastPurchased}</p>
+                <h4><TranslatedText>{alert.item}</TranslatedText></h4>
+                                  <p><TranslatedText>Expires in: {alert.expiresIn}</TranslatedText></p>
+                  <p><TranslatedText>Last Purchased: {alert.lastPurchased}</TranslatedText></p>
               </div>
               <button
                 className="add-to-list-btn"
@@ -211,7 +212,7 @@ const Insights = ({ sessionId, insightsData }) => {
                     animation: 'spin 1s linear infinite'
                   }}></div>
                 )}
-                {addingToShoppingList ? 'Adding...' : 'Add to list'}
+                {addingToShoppingList ? <TranslatedText>Adding...</TranslatedText> : <TranslatedText>Add to list</TranslatedText>}
               </button>
             </div>
           ))
@@ -219,33 +220,33 @@ const Insights = ({ sessionId, insightsData }) => {
       </div>
 
       <div className="section">
-        <h3>Your Subscriptions</h3>
+        <h3><TranslatedText>Your Subscriptions</TranslatedText></h3>
         {insightsLoading ? (
-          <div className="loading-placeholder">Loading subscriptions...</div>
+          <div className="loading-placeholder"><TranslatedText>Loading subscriptions...</TranslatedText></div>
         ) : (
           subscriptions.map((subscription) => (
             <div key={subscription.id} className="subscription-card">
-              <h4>{subscription.name}</h4>
-              <p>Renews On: {subscription.renewsOn}</p>
-              <p>Days Left: {subscription.daysLeft} Days</p>
+              <h4><TranslatedText>{subscription.name}</TranslatedText></h4>
+              <p><TranslatedText>Renews On: {subscription.renewsOn}</TranslatedText></p>
+              <p><TranslatedText>Days Left: {subscription.daysLeft} Days</TranslatedText></p>
             </div>
           ))
         )}
       </div>
 
       <div className="section">
-        <h3>Savings Goals</h3>
+        <h3><TranslatedText>Savings Goals</TranslatedText></h3>
         {insightsLoading ? (
-          <div className="loading-placeholder">Loading savings goals...</div>
+          <div className="loading-placeholder"><TranslatedText>Loading savings goals...</TranslatedText></div>
         ) : (
           savingsGoals.map((goal) => (
             <div key={goal.id} className="goal-card">
-              <h4>{goal.name}</h4>
-              <p>Goal: ₹{goal.goal.toLocaleString()}</p>
-              <p>Est. Months to Goal: {goal.estimatedMonths} Months</p>
-              <p>{goal.suggestion}</p>
+              <h4><TranslatedText>{goal.name}</TranslatedText></h4>
+              <p><TranslatedText>Goal: ₹{goal.goal.toLocaleString()}</TranslatedText></p>
+              <p><TranslatedText>Est. Months to Goal: {goal.estimatedMonths} Months</TranslatedText></p>
+              <p><TranslatedText>{goal.suggestion}</TranslatedText></p>
               <p>
-                You could save ₹{goal.monthlySavings}/month towards your goal
+                <TranslatedText>You could save ₹{goal.monthlySavings}/month towards your goal</TranslatedText>
               </p>
             </div>
           ))
@@ -253,42 +254,42 @@ const Insights = ({ sessionId, insightsData }) => {
       </div>
 
       <div className="section">
-        <h3>Product Warranty</h3>
+        <h3><TranslatedText>Product Warranty</TranslatedText></h3>
         {insightsLoading ? (
-          <div className="loading-placeholder">Loading warranties...</div>
+          <div className="loading-placeholder"><TranslatedText>Loading warranties...</TranslatedText></div>
         ) : (
           warranties.map((warranty) => (
             <div key={warranty.id} className="warranty-card">
-              <h4>{warranty.product}</h4>
-              <p>Warranty Ends: {warranty.warrantyEnds}</p>
-              <p>Days Left: {warranty.daysLeft} Days</p>
+              <h4><TranslatedText>{warranty.product}</TranslatedText></h4>
+              <p><TranslatedText>Warranty Ends: {warranty.warrantyEnds}</TranslatedText></p>
+              <p><TranslatedText>Days Left: {warranty.daysLeft} Days</TranslatedText></p>
             </div>
           ))
         )}
       </div>
 
       <div className="section">
-        <h3>Financial Snapshot</h3>
+        <h3><TranslatedText>Financial Snapshot</TranslatedText></h3>
         {insightsLoading ? (
           <div className="loading-placeholder">
-            Loading financial snapshot...
+            <TranslatedText>Loading financial snapshot...</TranslatedText>
           </div>
         ) : (
           <div className="snapshot-card">
-            <h4>Highest Spending Category</h4>
+            <h4><TranslatedText>Highest Spending Category</TranslatedText></h4>
             <p>
-              Category: {financialSnapshot.highestSpendingCategory?.category}
+              <TranslatedText>Category: {financialSnapshot.highestSpendingCategory?.category}</TranslatedText>
             </p>
             <p>
-              Amount: ₹
-              {financialSnapshot.highestSpendingCategory?.amount?.toLocaleString()}
+              <TranslatedText>Amount: ₹
+              {financialSnapshot.highestSpendingCategory?.amount?.toLocaleString()}</TranslatedText>
             </p>
 
-            <h4>Highest Spending Month</h4>
-            <p>Month: {financialSnapshot.highestSpendingMonth?.month}</p>
+            <h4><TranslatedText>Highest Spending Month</TranslatedText></h4>
+            <p><TranslatedText>Month: {financialSnapshot.highestSpendingMonth?.month}</TranslatedText></p>
             <p>
-              Amount: ₹
-              {financialSnapshot.highestSpendingMonth?.amount?.toLocaleString()}
+              <TranslatedText>Amount: ₹
+              {financialSnapshot.highestSpendingMonth?.amount?.toLocaleString()}</TranslatedText>
             </p>
           </div>
         )}
@@ -317,7 +318,7 @@ const Insights = ({ sessionId, insightsData }) => {
             maxWidth: '90vw'
           }}>
             <h3 style={{ margin: '0 0 16px 0', fontSize: '20px', fontWeight: '600' }}>
-              Item Added to Shopping List!
+              <TranslatedText>Item Added to Shopping List!</TranslatedText>
             </h3>
             <p style={{ 
               margin: '0 0 24px 0', 
@@ -325,7 +326,7 @@ const Insights = ({ sessionId, insightsData }) => {
               color: '#666',
               lineHeight: '1.5'
             }}>
-              Your item has been added to the shopping list and is ready to be added to Google Wallet for easy access and organization.
+              <TranslatedText>Your item has been added to the shopping list and is ready to be added to Google Wallet for easy access and organization.</TranslatedText>
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
               <button 
@@ -343,7 +344,7 @@ const Insights = ({ sessionId, insightsData }) => {
                   fontWeight: '500'
                 }}
               >
-                Skip
+                <TranslatedText>Skip</TranslatedText>
               </button>
               <button 
                 onClick={handleAddToGoogleWallet}
@@ -358,7 +359,7 @@ const Insights = ({ sessionId, insightsData }) => {
                   fontWeight: '500'
                 }}
               >
-                Add to Google Wallet
+                <TranslatedText>Add to Google Wallet</TranslatedText>
               </button>
             </div>
           </div>

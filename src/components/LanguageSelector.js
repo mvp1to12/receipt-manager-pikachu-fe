@@ -1,6 +1,7 @@
 import React from 'react';
 import { Globe } from 'lucide-react';
 import useLanguageStore, { languages } from '../services/languageStore';
+import TranslatedText from './TranslatedText';
 
 const LanguageSelector = ({ isOpen, onClose }) => {
   const { targetLanguage, setTargetLanguage } = useLanguageStore();
@@ -21,7 +22,7 @@ const LanguageSelector = ({ isOpen, onClose }) => {
     <div className="language-modal-overlay">
       <div className="language-modal">
         <div className="language-modal-header">
-          <h3>Select your language</h3>
+          <h3><TranslatedText>Select your language</TranslatedText></h3>
           <button className="close-button" onClick={onClose}>×</button>
         </div>
         <div className="language-list">

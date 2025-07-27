@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard';
 import Insights from './components/Insights';
 import Chat from './components/Chat';
 import { createSession, dashboardAPI, insightsAPI } from './services/api';
+import TranslatedText from './components/TranslatedText';
 import './App.css';
 
 import {mockDashboardData, mockInsightsData} from './components/mock_data';
@@ -69,7 +70,7 @@ function App() {
         
       } catch (err) {
         console.error('Failed to create session:', err);
-        setError('Failed to initialize application. Please refresh the page.');
+        setError(<TranslatedText>Failed to initialize application. Please refresh the page.</TranslatedText>);
         setIsLoading(false);
       }
     };
@@ -131,7 +132,7 @@ function App() {
       <div className="app">
         <div className="loading-container">
           <div className="loading-spinner"></div>
-          <p>Initializing application...</p>
+          <p><TranslatedText>Initializing application...</TranslatedText></p>
         </div>
       </div>
     );
@@ -143,7 +144,7 @@ function App() {
       <div className="app">
         <div className="error-container">
           <p className="error-message">{error}</p>
-          <button onClick={() => window.location.reload()}>Retry</button>
+          <button onClick={() => window.location.reload()}><TranslatedText>Retry</TranslatedText></button>
         </div>
       </div>
     );
@@ -161,7 +162,7 @@ function App() {
           onClick={() => setActiveTab('dashboard')}
         >
           <BarChart3 size={24} />
-          <span>Dashboard</span>
+          <span><TranslatedText>Dashboard</TranslatedText></span>
         </button>
         
         <button
@@ -169,7 +170,7 @@ function App() {
           onClick={() => setActiveTab('insights')}
         >
           <Lightbulb size={24} />
-          <span>Insights</span>
+          <span><TranslatedText>Insights</TranslatedText></span>
         </button>
         
         <button
@@ -177,7 +178,7 @@ function App() {
           onClick={() => setActiveTab('chat')}
         >
           <MessageCircle size={24} />
-          <span>Chat</span>
+          <span><TranslatedText>Chat</TranslatedText></span>
         </button>
       </nav>
     </div>

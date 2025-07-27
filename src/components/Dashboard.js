@@ -3,6 +3,7 @@ import { Camera, Video, Mic, Upload, AlertCircle, Languages, ArrowLeft } from 'l
 import { dashboardAPI } from '../services/api';
 import LanguageSelector from './LanguageSelector';
 import useLanguageStore, { languages } from '../services/languageStore';
+import TranslatedText from './TranslatedText';
 
 const Dashboard = ({ sessionId, dashboardData }) => {
   const [totalExpense, setTotalExpense] = useState(0);
@@ -571,7 +572,7 @@ const Dashboard = ({ sessionId, dashboardData }) => {
     <div className="dashboard">
       <div className="expense-header">
         <div className="expense-info">
-          <h2>Your total expense for this month</h2>
+          <h2><TranslatedText>Your total expense for this month</TranslatedText></h2>
           <div className="total-amount">
             {dashboardLoading ? (
               <div style={{
@@ -606,42 +607,42 @@ const Dashboard = ({ sessionId, dashboardData }) => {
       </div>
 
       <div className="receipt-upload">
-        <h3>Add a receipt</h3>
+        <h3><TranslatedText>Add a receipt</TranslatedText></h3>
         <div className="upload-options">
           <button 
             className="upload-option"
             onClick={() => handleReceiptUpload('photo')}
           >
             <Camera size={24} />
-            <span>Photo</span>
+            <span><TranslatedText>Photo</TranslatedText></span>
           </button>
           <button 
             className="upload-option"
             onClick={() => handleReceiptUpload('video')}
           >
             <Video size={24} />
-            <span>Video</span>
+            <span><TranslatedText>Video</TranslatedText></span>
           </button>
           <button 
             className="upload-option"
             onClick={() => handleReceiptUpload('voice')}
           >
             <Mic size={24} />
-            <span>Voice</span>
+            <span><TranslatedText>Voice</TranslatedText></span>
           </button>
           <button 
             className="upload-option"
             onClick={() => handleReceiptUpload('upload')}
           >
             <Upload size={24} />
-            <span>Upload</span>
+            <span><TranslatedText>Upload</TranslatedText></span>
           </button>
         </div>
       </div>
 
       <div className="spending-graph">
         <div className="graph-placeholder">
-          <h3>Monthly Spending Trend</h3>
+          <h3><TranslatedText>Monthly Spending Trend</TranslatedText></h3>
           {dashboardLoading ? (
             <div style={{
               display: 'flex',
@@ -658,7 +659,7 @@ const Dashboard = ({ sessionId, dashboardData }) => {
                 borderRadius: '50%',
                 animation: 'spin 1s linear infinite'
               }}></div>
-              <span style={{ color: '#666', fontSize: '14px' }}>Loading spending trends...</span>
+              <span style={{ color: '#666', fontSize: '14px' }}><TranslatedText>Loading spending trends...</TranslatedText></span>
             </div>
           ) : monthlyExpenseGraph.length > 0 ? (
             <div className="monthly-graph">
@@ -694,13 +695,13 @@ const Dashboard = ({ sessionId, dashboardData }) => {
               })()}
             </div>
           ) : (
-            <p>No spending data available</p>
+            <p><TranslatedText>No spending data available</TranslatedText></p>
           )}
         </div>
       </div>
 
       <div className="recent-spending">
-        <h3>Recent spending</h3>
+        <h3><TranslatedText>Recent spending</TranslatedText></h3>
         {dashboardLoading ? (
           <div style={{
             display: 'flex',
@@ -717,19 +718,19 @@ const Dashboard = ({ sessionId, dashboardData }) => {
               borderRadius: '50%',
               animation: 'spin 1s linear infinite'
             }}></div>
-            <span style={{ color: '#666', fontSize: '14px' }}>Loading recent spending...</span>
+                          <span style={{ color: '#666', fontSize: '14px' }}><TranslatedText>Loading recent spending...</TranslatedText></span>
           </div>
         ) : (
           <div className="spending-list">
             {recentSpending.map((item) => (
               <div key={item.id} className="spending-item">
                 <div className="item-info">
-                  <div className="item-name">{item.item}</div>
-                  <div className="item-date">{item.date}</div>
+                  <div className="item-name"><TranslatedText>{item.item}</TranslatedText></div>
+                  <div className="item-date"><TranslatedText>{item.date}</TranslatedText></div>
                 </div>
                 <div className="item-details">
                   <div className="item-amount">₹{item.amount.toFixed(2)}</div>
-                  <div className="item-category">{item.category}</div>
+                  <div className="item-category"><TranslatedText>{item.category}</TranslatedText></div>
                 </div>
               </div>
             ))}
@@ -738,7 +739,7 @@ const Dashboard = ({ sessionId, dashboardData }) => {
       </div>
 
       <div className="top-categories">
-        <h3>Top spending categories</h3>
+        <h3><TranslatedText>Top spending categories</TranslatedText></h3>
         {dashboardLoading ? (
           <div style={{
             display: 'flex',
@@ -755,7 +756,7 @@ const Dashboard = ({ sessionId, dashboardData }) => {
               borderRadius: '50%',
               animation: 'spin 1s linear infinite'
             }}></div>
-            <span style={{ color: '#666', fontSize: '14px' }}>Loading spending categories...</span>
+            <span style={{ color: '#666', fontSize: '14px' }}><TranslatedText>Loading spending categories...</TranslatedText></span>
           </div>
         ) : (
           <div className="categories-list">
@@ -767,7 +768,7 @@ const Dashboard = ({ sessionId, dashboardData }) => {
                 style={{ cursor: 'pointer' }}
               >
                 <div className="category-info">
-                  <span className="category-name">{category.name}</span>
+                  <span className="category-name"><TranslatedText>{category.name}</TranslatedText></span>
                   {category.hasAlert && <AlertCircle size={16} className="alert-icon" />}
                 </div>
                 <span className="category-amount">₹{category.amount.toLocaleString()}</span>
