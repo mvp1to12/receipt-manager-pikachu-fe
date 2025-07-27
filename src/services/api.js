@@ -227,7 +227,19 @@ const uploadMediaToExternalAPI = async (fileOrBlob, method, sessionId) => {
 
     const data = await response.json();
 
-    const result = sanitizeJson(data);
+    if(data.error_code){
+      throw new Error(data.error_message);
+    }
+
+
+    let result = null;
+
+    result = sanitizeJson(data);
+
+    if(!result){
+      result = sanitizeResponse(data);
+      if(result){ result = {'wallet_token': result}}
+    }
 
     return { success: true, data: result || {} };
 

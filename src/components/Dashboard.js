@@ -573,7 +573,27 @@ const Dashboard = ({ sessionId, dashboardData }) => {
         <div className="expense-info">
           <h2>Your total expense for this month</h2>
           <div className="total-amount">
-            {dashboardLoading ? 'Loading...' : `₹${totalExpense.toLocaleString()}`}
+            {dashboardLoading ? (
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '24px',
+                color: '#666'
+              }}>
+                <div style={{
+                  width: 20,
+                  height: 20,
+                  border: '2px solid #f3f3f3',
+                  borderTop: '2px solid #4285f4',
+                  borderRadius: '50%',
+                  animation: 'spin 1s linear infinite'
+                }}></div>
+                Loading...
+              </div>
+            ) : (
+              `₹${totalExpense.toLocaleString()}`
+            )}
           </div>
         </div>
         <button 
@@ -623,27 +643,82 @@ const Dashboard = ({ sessionId, dashboardData }) => {
         <div className="graph-placeholder">
           <h3>Monthly Spending Trend</h3>
           {dashboardLoading ? (
-            <div className="loading-placeholder">Loading spending trends...</div>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '20px'
+            }}>
+              <div style={{
+                width: 32,
+                height: 32,
+                border: '3px solid #f3f3f3',
+                borderTop: '3px solid #4285f4',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite'
+              }}></div>
+              <span style={{ color: '#666', fontSize: '14px' }}>Loading spending trends...</span>
+            </div>
           ) : monthlyExpenseGraph.length > 0 ? (
             <div className="monthly-graph">
-              {monthlyExpenseGraph.map((monthData, index) => (
-                <div key={index} className="month-bar">
-                  <div className="bar-label">{monthData.month}</div>
-                  <div className="bar-amount">₹{monthData.amount.toLocaleString()}</div>
-                </div>
-              ))}
+              {(() => {
+                // Calculate the maximum amount for scaling
+                const maxAmount = Math.max(...monthlyExpenseGraph.map(item => item.amount));
+                const maxBarHeight = 120; // Maximum height in pixels
+                
+                return monthlyExpenseGraph.map((monthData, index) => {
+                  const barHeight = maxAmount > 0 ? (monthData.amount / maxAmount) * maxBarHeight : 0;
+                  const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
+                  const isCurrentMonth = monthData.month === currentMonth;
+                  
+                  return (
+                    <div key={index} className="month-bar">
+                      <div className="bar-container">
+                        <div 
+                          className={`bar ${isCurrentMonth ? 'current-month' : ''}`}
+                          style={{ 
+                            height: `${barHeight}px`,
+                            backgroundColor: isCurrentMonth ? '#4285f4' : '#e0e0e0'
+                          }}
+                        >
+                          <div className="bar-tooltip">
+                            ₹{monthData.amount.toLocaleString()}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bar-label">{monthData.month}</div>
+                    </div>
+                  );
+                });
+              })()}
             </div>
           ) : (
             <p>No spending data available</p>
           )}
         </div>
-        <p className="spending-info">Average spending is 20% lower compared to last month</p>
       </div>
 
       <div className="recent-spending">
         <h3>Recent spending</h3>
         {dashboardLoading ? (
-          <div className="loading-placeholder">Loading recent spending...</div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px',
+            padding: '20px'
+          }}>
+            <div style={{
+              width: 32,
+              height: 32,
+              border: '3px solid #f3f3f3',
+              borderTop: '3px solid #4285f4',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite'
+            }}></div>
+            <span style={{ color: '#666', fontSize: '14px' }}>Loading recent spending...</span>
+          </div>
         ) : (
           <div className="spending-list">
             {recentSpending.map((item) => (
@@ -665,7 +740,23 @@ const Dashboard = ({ sessionId, dashboardData }) => {
       <div className="top-categories">
         <h3>Top spending categories</h3>
         {dashboardLoading ? (
-          <div className="loading-placeholder">Loading spending categories...</div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px',
+            padding: '20px'
+          }}>
+            <div style={{
+              width: 32,
+              height: 32,
+              border: '3px solid #f3f3f3',
+              borderTop: '3px solid #4285f4',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite'
+            }}></div>
+            <span style={{ color: '#666', fontSize: '14px' }}>Loading spending categories...</span>
+          </div>
         ) : (
           <div className="categories-list">
             {topCategories.map((category, index) => (
@@ -784,7 +875,58 @@ const Dashboard = ({ sessionId, dashboardData }) => {
                  )}
                </div>
              )}
-            {uploading && <p>Uploading...</p>}
+          </div>
+        </div>
+      )}
+      
+      {/* Upload Loading Screen - Outside modal so it appears for all upload types */}
+      {uploading && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(0,0,0,0.8)',
+          zIndex: 10002,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column'
+        }}>
+          <div style={{
+            background: '#fff',
+            borderRadius: 16,
+            padding: 32,
+            textAlign: 'center',
+            maxWidth: '90vw',
+            minWidth: 300
+          }}>
+            <div style={{
+              width: 48,
+              height: 48,
+              border: '4px solid #f3f3f3',
+              borderTop: '4px solid #4285f4',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite',
+              margin: '0 auto 16px auto'
+            }}></div>
+            <h3 style={{ 
+              margin: '0 0 8px 0', 
+              fontSize: '18px', 
+              fontWeight: '600',
+              color: '#333'
+            }}>
+              Uploading Receipt
+            </h3>
+            <p style={{ 
+              margin: 0, 
+              fontSize: '14px', 
+              color: '#666',
+              lineHeight: '1.5'
+            }}>
+              Please wait while we process your receipt...
+            </p>
           </div>
         </div>
       )}

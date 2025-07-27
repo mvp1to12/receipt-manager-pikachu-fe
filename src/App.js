@@ -53,15 +53,15 @@ function App() {
           setDashboardData(mockDashboardData);
           
         }, 1200);
-        // loadDashboardData(newSessionId);
+        loadDashboardData(newSessionId);
         
         // // Step 4: Load insights data asynchronously
         console.log('Starting async insights data load...');
               // setting mock initial data
 
-        // setTimeout(() => {
-        //   loadInsightsData(newSessionId);
-        // }, 15000);
+        setTimeout(() => {
+          loadInsightsData(newSessionId);
+        }, 10000);
         setTimeout(() => {
           setInsightsData(mockInsightsData);
           
